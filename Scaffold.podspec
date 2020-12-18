@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "Scaffold"
-  spec.version      = "1.0.0"
+  spec.version      = "0.1.0"
   spec.summary      = "A description of Scaffold."
 
   # This description is used to generate tags and improve search results.
@@ -91,7 +91,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Classes/*"
+  spec.source_files  = 'Classes/**/*'
   # spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
@@ -138,6 +138,7 @@ Pod::Spec.new do |spec|
   spec.dependency "MJRefresh"
   spec.dependency "TABAnimated"
   spec.dependency "DZNEmptyDataSet"
+  spec.dependency "RxSwift"
 
 
 end

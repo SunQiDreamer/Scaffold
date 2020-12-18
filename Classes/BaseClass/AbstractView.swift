@@ -16,7 +16,7 @@ class AbstractView: UIView, ViewProtocol {
     
     func custom(with text: String) { }
     
-    func custom(with data: TYModelProtocol) { }
+//    func custom(with data: TYModelProtocol) { }
 
     override init(frame: CGRect) {
         super.init(frame: frame)

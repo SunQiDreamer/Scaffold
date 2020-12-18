@@ -27,7 +27,7 @@ class AbstractCollectionReusableView: UICollectionReusableView, ViewProtocol {
     
     func custom(with data: ModelProtocol) {}
     
-    func custom(with data: TYModelProtocol) {}
+//    func custom(with data: TYModelProtocol) {}
     
     func custom(with text: String) {}
 

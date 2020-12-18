@@ -29,7 +29,7 @@ class AbstractTableHeaderFooterView: UITableViewHeaderFooterView, ViewProtocol {
     
     func custom(with text: String) { }
     
-    func custom(with data: TYModelProtocol) { }
+//    func custom(with data: TYModelProtocol) { }
     
 //    deinit {
 //        print("=======================================")

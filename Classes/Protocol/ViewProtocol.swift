@@ -15,7 +15,7 @@ protocol ViewProtocol {
     func custom(with data: ModelProtocol)
     
     // 兼容OC
-    func custom(with data: TYModelProtocol)
+    //func custom(with data: TYModelProtocol)
     
     func custom(with text: String)
     

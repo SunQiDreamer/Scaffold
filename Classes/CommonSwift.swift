@@ -59,14 +59,14 @@ func Image(name: String) -> UIImage? {
     return UIImage(named: name)
 }
 
-func IconName(name: String) -> String {
-    TYIcon.matchCode(withName: name)
-}
+//func IconName(name: String) -> String {
+//    TYIcon.matchCode(withName: name)
+//}
 
 /// 是否登录
-func isLogin() -> Bool {
-    GQUserInfoManager.share().isLogin()
-}
+//func isLogin() -> Bool {
+//    GQUserInfoManager.share().isLogin()
+//}
 
 func floor(_ value: CGFloat) -> CGFloat {
      value.rounded(.down)
