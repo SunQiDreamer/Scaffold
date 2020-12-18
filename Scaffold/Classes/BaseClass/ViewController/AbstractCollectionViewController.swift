@@ -96,7 +96,7 @@ class AbstractCollectionViewController: UIViewController, ListViewControllerProt
     }
     
     func customRefreshHeader() -> MJRefreshHeader? {
-        MJRefreshNormalHeader { [weak self] in
+        GQAnimationRefreshHeader { [weak self] in
             self?.viewModel.refreshData()
         }
     }

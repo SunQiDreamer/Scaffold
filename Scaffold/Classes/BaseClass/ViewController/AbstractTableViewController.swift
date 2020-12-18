@@ -59,7 +59,7 @@ class AbstractTableViewController: AbstractViewController, ListViewControllerPro
     }
     
     func customRefreshHeader() -> MJRefreshHeader? {
-        MJRefreshNormalHeader { [weak self] in
+        GQAnimationRefreshHeader { [weak self] in
             self?.viewModel.refreshData()
         }
     }
