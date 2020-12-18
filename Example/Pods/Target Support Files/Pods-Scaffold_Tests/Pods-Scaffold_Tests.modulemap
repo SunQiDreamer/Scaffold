@@ -1,6 +1,0 @@
-framework module Pods_Scaffold_Tests {
-  umbrella header "Pods-Scaffold_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}

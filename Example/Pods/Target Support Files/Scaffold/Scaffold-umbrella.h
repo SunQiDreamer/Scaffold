@@ -10,6 +10,10 @@
 #endif
 #endif
 
+#import "UIColor+Addition.h"
+#import "UIFont+Addition.h"
+#import "CommonHeader.h"
+#import "GQAnimationRefreshHeader.h"
 
 FOUNDATION_EXPORT double ScaffoldVersionNumber;
 FOUNDATION_EXPORT const unsigned char ScaffoldVersionString[];

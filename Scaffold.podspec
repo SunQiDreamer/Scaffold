@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '11.0'
 
-  s.source_files = 'Scaffold/Classes/*'
+  s.source_files = 'Scaffold/Classes/*', 'Scaffold/Classes/**/*'
   
   # s.resource_bundles = {
   #   'Scaffold' => ['Scaffold/Assets/*.png']
@@ -38,5 +38,18 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'JXSegmentedView'
+  s.dependency 'JXPagingView/Paging' #swift
+  s.dependency 'RxSwift'
+  s.dependency 'RxCocoa'
+  s.dependency 'TABAnimated'
+  s.dependency 'MJRefresh'
+  s.dependency 'DZNEmptyDataSet'
+  s.dependency 'TABAnimated'
+  s.dependency 'YYCategories'
+  s.dependency 'YYCache'
+  s.dependency 'SnapKit'
+  s.dependency 'lottie-ios', '2.5.3'
+  s.dependency 'Masonry'
+
 end

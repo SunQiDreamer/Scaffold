@@ -1,9 +1,9 @@
 {
   "name": "Scaffold",
-  "version": "0.1.0",
-  "summary": "A short description of Scaffold.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/孙琦/Scaffold",
+  "version": "0.3.0",
+  "summary": "A Scaffold.",
+  "description": "ios项目使用的基类脚手架",
+  "homepage": "https://github.com/SunQiDreamer/Scaffold",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,52 @@
     "孙琦": "993473797@qq.com"
   },
   "source": {
-    "git": "https://github.com/孙琦/Scaffold.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/SunQiDreamer/Scaffold",
+    "tag": "0.3.0"
   },
   "platforms": {
-    "ios": "9.0"
+    "ios": "11.0"
   },
-  "source_files": "Scaffold/Classes/**/*"
+  "source_files": [
+    "Scaffold/Classes/*",
+    "Scaffold/Classes/**/*"
+  ],
+  "dependencies": {
+    "JXSegmentedView": [
+
+    ],
+    "JXPagingView/Paging": [
+
+    ],
+    "RxSwift": [
+
+    ],
+    "RxCocoa": [
+
+    ],
+    "TABAnimated": [
+
+    ],
+    "MJRefresh": [
+
+    ],
+    "DZNEmptyDataSet": [
+
+    ],
+    "YYCategories": [
+
+    ],
+    "YYCache": [
+
+    ],
+    "SnapKit": [
+
+    ],
+    "lottie-ios": [
+      "2.5.3"
+    ],
+    "Masonry": [
+
+    ]
+  }
 }
