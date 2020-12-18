@@ -6,7 +6,7 @@
 //  Copyright © 2019 Tigerye. All rights reserved.
 //
 
-#import "MJRefreshHeader.h"
+#import <MJRefresh/MJRefreshHeader.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
