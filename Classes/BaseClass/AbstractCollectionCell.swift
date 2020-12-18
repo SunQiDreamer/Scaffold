@@ -23,7 +23,7 @@ class AbstractCollectionCell: UICollectionViewCell, ViewProtocol {
         contentView.backgroundColor = .bgMain
     }
 
-    func custom(with data: TYModelProtocol) { }
+    // func custom(with data: TYModelProtocol) { }
     
     func custom(with data: ModelProtocol) { }
 

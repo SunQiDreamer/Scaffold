@@ -17,7 +17,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "Scaffold"
   spec.version      = "1.0.0"
-  spec.summary      = "A short description of Scaffold."
+  spec.summary      = "A description of Scaffold."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,6 +25,7 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
+  这只是一个建立pod仓库的简单demo，并没有实际的意思。教学使用。
                    DESC
 
   spec.homepage     = "https://github.com/SunQiDreamer/Scaffold"
@@ -79,7 +80,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/SunQiDreamer/Scaffold.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/SunQiDreamer/Scaffold.git", :tag => spec.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -90,7 +91,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Classes", "Classes/**/*.{h,m}"
+  spec.source_files  = "Classes", "Classes/**/*.{h, m, swift}, Classes/*.{h, m, swift}"
   # spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
@@ -133,5 +134,10 @@ Pod::Spec.new do |spec|
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
+  spec.dependency "JXSegmentedView"
+  spec.dependency "MJRefresh"
+  spec.dependency "TABAnimated"
+  spec.dependency "DZNEmptyDataSet"
+
 
 end
