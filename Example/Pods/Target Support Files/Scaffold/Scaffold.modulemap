@@ -1,0 +1,6 @@
+framework module Scaffold {
+  umbrella header "Scaffold-umbrella.h"
+
+  export *
+  module * { export * }
+}

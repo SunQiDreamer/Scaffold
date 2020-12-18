@@ -1,0 +1,16 @@
+PODS:
+  - Scaffold (0.1.0)
+
+DEPENDENCIES:
+  - Scaffold (from `../`)
+
+EXTERNAL SOURCES:
+  Scaffold:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Scaffold: a6fe76b958eeb2f74fa8c001a58ee8a7147ea557
+
+PODFILE CHECKSUM: e4afd339d5b88d59a3ab4abe0dcdf132374c8aca
+
+COCOAPODS: 1.9.3
