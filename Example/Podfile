@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'Scaffold_Example' do
+  pod 'Scaffold', :path => '../'
+
+  target 'Scaffold_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
