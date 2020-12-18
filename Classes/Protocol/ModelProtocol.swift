@@ -6,7 +6,7 @@
 //  Copyright © 2020 Tigerobo. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol ModelProtocol {
     

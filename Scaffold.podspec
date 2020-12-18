@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "Scaffold"
-  spec.version      = "0.1.0"
+  spec.version      = "0.2.0"
   spec.summary      = "A description of Scaffold."
 
   # This description is used to generate tags and improve search results.
