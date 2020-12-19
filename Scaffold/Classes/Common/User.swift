@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class User {
+    static let share = User()
+    private init() {}
+    
+    var isLogin: Bool {
+        return true
+    }
+}

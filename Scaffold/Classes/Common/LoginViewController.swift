@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class LoginViewController: AbstractViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+}

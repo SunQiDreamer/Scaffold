@@ -9,6 +9,7 @@
 import UIKit
 import DZNEmptyDataSet
 import TABAnimated
+import AFNetworking
 
 class AbstractTableViewController: AbstractViewController, ListViewControllerProtocol {
     
@@ -40,7 +41,7 @@ class AbstractTableViewController: AbstractViewController, ListViewControllerPro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        automaticallyAdjustsScrollViewInsets = false
+        tableView.contentInsetAdjustmentBehavior = .never
         view.backgroundColor = .bgMain
         view.addSubview(tableView)
         
@@ -76,7 +77,7 @@ class AbstractTableViewController: AbstractViewController, ListViewControllerPro
                 header.lastUpdatedTimeLabel?.isHidden = true
                 header.stateLabel?.font = .systemFont(ofSize: 14)
                 header.stateLabel?.textColor = .textGray3
-//                header.loadingView?.style = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
+                header.loadingView?.activityIndicatorViewStyle = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
                 tableView.mj_header = header
             } else {
                 tableView.mj_header = customHeader
@@ -100,7 +101,7 @@ class AbstractTableViewController: AbstractViewController, ListViewControllerPro
                 }
                 footer.stateLabel?.textColor = .textGray2
                 footer.stateLabel?.font = 14.normalFont
-//                footer.loadingView?.style = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
+                footer.loadingView?.activityIndicatorViewStyle = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
                 tableView.mj_footer = footer
             } else {
                 tableView.mj_footer = customFooter
@@ -196,10 +197,10 @@ extension AbstractTableViewController {
         super.traitCollectionDidChange(previousTraitCollection)
         
         let header = tableView.mj_header as? MJRefreshNormalHeader
-//        header?.loadingView?.style = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
+        header?.loadingView?.activityIndicatorViewStyle = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
         
         let footer = tableView.mj_footer as? MJRefreshAutoNormalFooter
-//        footer?.loadingView?.style = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
+        footer?.loadingView?.activityIndicatorViewStyle = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
     }
     
 }
@@ -246,31 +247,26 @@ extension AbstractTableViewController: UITableViewDataSource, UITableViewDelegat
 // MARK: - EmptyDataSet
 extension AbstractTableViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-//        if XMCenter.isNetworkReachable() {
-//            return Image(name: "no_content")
-//        } else {
-//            return Image(name: "no_wifi")
-//        }
-        
-        return Image(name: "no_content")
+        if AFNetworkReachabilityManager.shared().isReachable {
+            return Image(name: "no_content")
+        } else {
+            return Image(name: "no_wifi")
+        }
     }
     
     func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
-        
-        return NSAttributedString(string: "暂无数据", attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.lightGray])
-//        if XMCenter.isNetworkReachable() {
-//
-//            return NSAttributedString(string: "暂无数据", attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.lightGray])
-//
-//        } else {
-//
-//            let text = "网络不给力，请点击重试"
-//            let attStr = NSMutableAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.lightGray])
-//            attStr.addAttribute(.foregroundColor, value: UIColor(hexString: "0x007EE5") ?? UIColor.textMain, range: NSRange(location: 7, length: 4))
-//
-//            return attStr;
-//
-//        }
+        if AFNetworkReachabilityManager.shared().isReachable {
+            return NSAttributedString(string: "暂无数据", attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.lightGray])
+
+        } else {
+
+            let text = "网络不给力，请点击重试"
+            let attStr = NSMutableAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.lightGray])
+            attStr.addAttribute(.foregroundColor, value: UIColor(hexString: "0x007EE5") ?? UIColor.textMain, range: NSRange(location: 7, length: 4))
+
+            return attStr;
+
+        }
     }
     
     func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {

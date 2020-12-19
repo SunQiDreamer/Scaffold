@@ -73,13 +73,16 @@ class AbstractViewController: UIViewController, UIGestureRecognizerDelegate, Vie
     }
     
     func handleLoginStatus() -> Bool {
-//        if !isLogin() {
-//            let nav = UINavigationController(rootViewController: TYAuthCodeLoginVC())
-//            nav.navigationBar.barTintColor = .bgMain
-//            nav.modalPresentationStyle = .fullScreen
-//            present(nav, animated: true, completion: nil)
-//            return false
-//        }
+        if !User.share.isLogin {
+            let vc = AbstractViewController()
+            if vc is Login {
+                let nav = UINavigationController(rootViewController: vc)
+                nav.navigationBar.barTintColor = .bgMain
+                nav.modalPresentationStyle = .fullScreen
+                present(nav, animated: true, completion: nil)
+                return false
+            }
+        }
         return true
     }
     

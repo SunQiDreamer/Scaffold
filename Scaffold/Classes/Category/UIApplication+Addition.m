@@ -11,6 +11,7 @@
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <CoreTelephony/CTCarrier.h>
 #import "AFNetworkReachabilityManager.h"
+#import <YYCategories/YYCategories.h>
 
 @implementation UIApplication (Addition)
 

@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+protocol Login: AbstractViewController {
+    
+    
+    
+}

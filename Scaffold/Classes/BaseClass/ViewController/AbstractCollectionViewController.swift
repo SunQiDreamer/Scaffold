@@ -11,6 +11,7 @@ import RxSwift
 import MJRefresh
 import DZNEmptyDataSet
 import TABAnimated
+import AFNetworking
 
 class AbstractCollectionViewController: UIViewController, ListViewControllerProtocol {
     
@@ -59,7 +60,7 @@ class AbstractCollectionViewController: UIViewController, ListViewControllerProt
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        automaticallyAdjustsScrollViewInsets = false
+        collectionView.contentInsetAdjustmentBehavior = .never
         view.backgroundColor = .bgMain
         view.addSubview(collectionView)
         
@@ -113,7 +114,7 @@ class AbstractCollectionViewController: UIViewController, ListViewControllerProt
                 header.lastUpdatedTimeLabel?.isHidden = true
                 header.stateLabel?.font = .systemFont(ofSize: 14)
                 header.stateLabel?.textColor = .textGray3
-//                header.loadingView?.style = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
+                header.loadingView?.activityIndicatorViewStyle = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
                 collectionView.mj_header = header
             } else {
                 collectionView.mj_header = customHeader
@@ -135,7 +136,7 @@ class AbstractCollectionViewController: UIViewController, ListViewControllerProt
                 let footer = MJRefreshAutoNormalFooter { [weak self] in
                     self?.viewModel.loadMore()
                 }
-//                footer.loadingView?.style = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
+                footer.loadingView?.activityIndicatorViewStyle = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
                 footer.stateLabel?.textColor = .textGray2
                 footer.stateLabel?.font = 14.normalFont
                 collectionView.mj_footer = footer
@@ -235,10 +236,10 @@ extension AbstractCollectionViewController {
         super.traitCollectionDidChange(previousTraitCollection)
         
         let header = collectionView.mj_header as? MJRefreshNormalHeader
-//        header?.loadingView?.style = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
+        header?.loadingView?.activityIndicatorViewStyle = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
         
         let footer = collectionView.mj_footer as? MJRefreshAutoNormalFooter
-//        footer?.loadingView?.style = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
+        footer?.loadingView?.activityIndicatorViewStyle = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
     }
     
 }
@@ -275,29 +276,24 @@ extension AbstractCollectionViewController: UICollectionViewDelegate, UICollecti
 // MARK: - EmptyDataSet
 extension AbstractCollectionViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return Image(name: "no_content")
-//        if XMCenter.isNetworkReachable() {
-//            return Image(name: "no_content")
-//        } else {
-//            return Image(name: "no_wifi")
-//        }
+        if AFNetworkReachabilityManager.shared().isReachable {
+            return Image(name: "no_content")
+        } else {
+            return Image(name: "no_wifi")
+        }
     }
     
     func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
-        return NSAttributedString(string: "暂无数据", attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.lightGray])
-//        if XMCenter.isNetworkReachable() {
-//
-//            return NSAttributedString(string: "暂无数据", attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.lightGray])
-//
-//        } else {
-//
-//            let text = "网络不给力，请点击重试"
-//            let attStr = NSMutableAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.lightGray])
-//            attStr.addAttribute(.foregroundColor, value: UIColor(hexString: "0x007EE5") ?? UIColor.textMain, range: NSRange(location: 7, length: 4))
-//
-//            return attStr;
-//
-//        }
+        if AFNetworkReachabilityManager.shared().isReachable {
+            return NSAttributedString(string: "暂无数据", attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.lightGray])
+        } else {
+            
+            let text = "网络不给力，请点击重试"
+            let attStr = NSMutableAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.lightGray])
+            attStr.addAttribute(.foregroundColor, value: UIColor(hexString: "0x007EE5") ?? UIColor.textMain, range: NSRange(location: 7, length: 4))
+            
+            return attStr;
+        }
     }
     
     func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
