@@ -59,8 +59,13 @@ class AbstractCollectionViewController: UIViewController, ListViewControllerProt
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        if #available(iOS 11.0, *) {
+            collectionView.contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
         
-        collectionView.contentInsetAdjustmentBehavior = .never
         view.backgroundColor = .bgMain
         view.addSubview(collectionView)
         

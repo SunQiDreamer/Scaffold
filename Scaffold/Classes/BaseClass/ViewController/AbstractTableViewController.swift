@@ -41,7 +41,11 @@ class AbstractTableViewController: AbstractViewController, ListViewControllerPro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.contentInsetAdjustmentBehavior = .never
+        if #available(iOS 11.0, *) {
+            tableView.contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
         view.backgroundColor = .bgMain
         view.addSubview(tableView)
         
