@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "UIApplication+Addition.h"
 #import "UIColor+Addition.h"
 #import "UIFont+Addition.h"
 #import "CommonHeader.h"

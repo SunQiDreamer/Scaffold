@@ -1,6 +1,6 @@
 {
   "name": "Scaffold",
-  "version": "0.3.0",
+  "version": "0.5.1",
   "summary": "A Scaffold.",
   "description": "ios项目使用的基类脚手架",
   "homepage": "https://github.com/SunQiDreamer/Scaffold",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/SunQiDreamer/Scaffold",
-    "tag": "0.3.0"
+    "tag": "0.5.1"
   },
   "platforms": {
     "ios": "11.0"
@@ -57,6 +57,9 @@
       "2.5.3"
     ],
     "Masonry": [
+
+    ],
+    "AFNetworking/Reachability": [
 
     ]
   }
