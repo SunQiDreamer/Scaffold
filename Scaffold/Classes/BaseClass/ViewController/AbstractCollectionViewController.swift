@@ -3,7 +3,7 @@
 //  MainSearch
 //
 //  Created by 孙琦 on 2020/7/10.
-//  Copyright © 2020 Tigerobo. All rights reserved.
+//  Copyright © 2020 sunqi. All rights reserved.
 //
 
 import Foundation
@@ -119,7 +119,7 @@ class AbstractCollectionViewController: UIViewController, ListViewControllerProt
                 header.lastUpdatedTimeLabel?.isHidden = true
                 header.stateLabel?.font = .systemFont(ofSize: 14)
                 header.stateLabel?.textColor = .textGray3
-                header.loadingView?.activityIndicatorViewStyle = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
+                header.loadingView?.style = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
                 collectionView.mj_header = header
             } else {
                 collectionView.mj_header = customHeader
@@ -141,7 +141,7 @@ class AbstractCollectionViewController: UIViewController, ListViewControllerProt
                 let footer = MJRefreshAutoNormalFooter { [weak self] in
                     self?.viewModel.loadMore()
                 }
-                footer.loadingView?.activityIndicatorViewStyle = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
+                footer.loadingView?.style = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
                 footer.stateLabel?.textColor = .textGray2
                 footer.stateLabel?.font = 14.normalFont
                 collectionView.mj_footer = footer
@@ -241,10 +241,10 @@ extension AbstractCollectionViewController {
         super.traitCollectionDidChange(previousTraitCollection)
         
         let header = collectionView.mj_header as? MJRefreshNormalHeader
-        header?.loadingView?.activityIndicatorViewStyle = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
+        header?.loadingView?.style = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
         
         let footer = collectionView.mj_footer as? MJRefreshAutoNormalFooter
-        footer?.loadingView?.activityIndicatorViewStyle = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
+        footer?.loadingView?.style = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
     }
     
 }

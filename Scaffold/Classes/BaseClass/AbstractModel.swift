@@ -3,29 +3,30 @@
 //  MainSearch
 //
 //  Created by 孙琦 on 2020/4/22.
-//  Copyright © 2020 Tigerobo. All rights reserved.
+//  Copyright © 2020 sunqi. All rights reserved.
 //
 
 import UIKit
 
+open
 class AbstractModel: ModelProtocol {
     
-    required init() {}
+    required public init() {}
     
-    var isLast: Bool? = false
+    public var isLast: Bool? = false
     
-    var isFirst: Bool? = false
+    public var isFirst: Bool? = false
     
-    func identifier() -> String {
+    public func identifier() -> String {
         let modelClassName = NSStringFromClass(type(of: self))
         return (modelClassName as NSString).replacingOccurrences(of: "Model", with: "Cell")
     }
 
-    func height() -> CGFloat {
-        UITableViewAutomaticDimension
+    open func height() -> CGFloat {
+        UITableView.automaticDimension
     }
 
-    func size() -> CGSize {
+    public func size() -> CGSize {
         CGSize(width: 30, height: 30)
     }
 }

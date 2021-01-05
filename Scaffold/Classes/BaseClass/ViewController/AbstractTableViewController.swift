@@ -3,7 +3,7 @@
 //  MainSearch
 //
 //  Created by 孙琦 on 2020/4/22.
-//  Copyright © 2020 Tigerobo. All rights reserved.
+//  Copyright © 2020 sunqi. All rights reserved.
 //
 
 import UIKit
@@ -11,6 +11,7 @@ import DZNEmptyDataSet
 import TABAnimated
 import AFNetworking
 
+open
 class AbstractTableViewController: AbstractViewController, ListViewControllerProtocol {
     
     lazy var tableView = { () -> UITableView in
@@ -38,7 +39,7 @@ class AbstractTableViewController: AbstractViewController, ListViewControllerPro
         
     }()
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         if #available(iOS 11.0, *) {
@@ -56,7 +57,7 @@ class AbstractTableViewController: AbstractViewController, ListViewControllerPro
         addTabAnimated()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         // fix refresh_header回不到原始位置的bug
@@ -81,7 +82,7 @@ class AbstractTableViewController: AbstractViewController, ListViewControllerPro
                 header.lastUpdatedTimeLabel?.isHidden = true
                 header.stateLabel?.font = .systemFont(ofSize: 14)
                 header.stateLabel?.textColor = .textGray3
-                header.loadingView?.activityIndicatorViewStyle = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
+                header.loadingView?.style = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
                 tableView.mj_header = header
             } else {
                 tableView.mj_header = customHeader
@@ -105,7 +106,7 @@ class AbstractTableViewController: AbstractViewController, ListViewControllerPro
                 }
                 footer.stateLabel?.textColor = .textGray2
                 footer.stateLabel?.font = 14.normalFont
-                footer.loadingView?.activityIndicatorViewStyle = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
+                footer.loadingView?.style = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
                 tableView.mj_footer = footer
             } else {
                 tableView.mj_footer = customFooter
@@ -197,14 +198,14 @@ extension AbstractTableViewController {
     }
     
     /// 深色浅色主题切换处理
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
         let header = tableView.mj_header as? MJRefreshNormalHeader
-        header?.loadingView?.activityIndicatorViewStyle = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
+        header?.loadingView?.style = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
         
         let footer = tableView.mj_footer as? MJRefreshAutoNormalFooter
-        footer?.loadingView?.activityIndicatorViewStyle = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
+        footer?.loadingView?.style = (UIApplication.shared.userInterfaceStyle.rawValue == TYUserInterfaceStyle.dark.rawValue) ? .white : .gray
     }
     
 }
@@ -212,21 +213,21 @@ extension AbstractTableViewController {
 // MARK: - UITableView
 extension AbstractTableViewController: UITableViewDataSource, UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         viewModel.height(at: indexPath)
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         let count = viewModel.numberOfSections()
         /// 设置section 最小为1，为0时骨架屏显示不出来
         return max(count, 1)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.numberOfRows(in: section)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = viewModel.model(at: indexPath)
         var cell = tableView.dequeueReusableCell(withIdentifier: model.identifier() )
         if cell == nil {
@@ -237,7 +238,7 @@ extension AbstractTableViewController: UITableViewDataSource, UITableViewDelegat
         return cell ?? UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if view.isKind(of: UITableViewHeaderFooterView.self) {
             if let view = view as? UITableViewHeaderFooterView {
                 view.backgroundView?.backgroundColor = .bgMain
@@ -250,7 +251,7 @@ extension AbstractTableViewController: UITableViewDataSource, UITableViewDelegat
 
 // MARK: - EmptyDataSet
 extension AbstractTableViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+    public func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         if AFNetworkReachabilityManager.shared().isReachable {
             return Image(name: "no_content")
         } else {
@@ -258,7 +259,7 @@ extension AbstractTableViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDel
         }
     }
     
-    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
+    public func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
         if AFNetworkReachabilityManager.shared().isReachable {
             return NSAttributedString(string: "暂无数据", attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.lightGray])
 
@@ -273,12 +274,12 @@ extension AbstractTableViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDel
         }
     }
     
-    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+    public func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
         // moMoreData默认是false,当值为true时说明已经进行了网络请求
         viewModel.dataSource.count == 0 && viewModel.noMoreData
     }
     
-    func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+    public func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
         viewModel.refreshData()
     }
     

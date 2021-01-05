@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DemoViewController.swift
 //  Scaffold
 //
 //  Created by 孙琦 on 12/18/2020.
@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Scaffold
 
-class ViewController: UIViewController {
+class DemoViewController: AbstractTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        view.backgroundColor = .red
     }
 
     override func didReceiveMemoryWarning() {

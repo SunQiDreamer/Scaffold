@@ -13,6 +13,7 @@
 #import "UIApplication+Addition.h"
 #import "UIColor+Addition.h"
 #import "UIFont+Addition.h"
+#import "UINavigationController+Addition.h"
 #import "CommonHeader.h"
 #import "GQAnimationRefreshHeader.h"
 

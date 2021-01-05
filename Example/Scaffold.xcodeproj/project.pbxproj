@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CA5368B25A3085500DE8CE2 /* DemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5368A25A3085500DE8CE2 /* DemoViewModel.swift */; };
+		2CA5368E25A308DF00DE8CE2 /* DemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5368D25A308DF00DE8CE2 /* DemoModel.swift */; };
+		2CA5369325A30A1B00DE8CE2 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5369225A30A1B00DE8CE2 /* DemoCell.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
+		607FACD81AFB9204008FA782 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* DemoViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -18,11 +21,14 @@
 /* Begin PBXFileReference section */
 		0AC46E3DFADFB8406A20767A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		14E8A95EFE8D06F0BF818C56 /* Pods_Scaffold_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scaffold_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CA5368A25A3085500DE8CE2 /* DemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewModel.swift; sourceTree = "<group>"; };
+		2CA5368D25A308DF00DE8CE2 /* DemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModel.swift; sourceTree = "<group>"; };
+		2CA5369225A30A1B00DE8CE2 /* DemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
 		3ED5DC2103B9C4B77136B813 /* Pods-Scaffold_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scaffold_Tests.release.xcconfig"; path = "Target Support Files/Pods-Scaffold_Tests/Pods-Scaffold_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Scaffold_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scaffold_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		607FACD71AFB9204008FA782 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -92,11 +98,14 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				2CA5368D25A308DF00DE8CE2 /* DemoModel.swift */,
+				607FACD71AFB9204008FA782 /* DemoViewController.swift */,
+				2CA5368A25A3085500DE8CE2 /* DemoViewModel.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				2CA5369225A30A1B00DE8CE2 /* DemoCell.swift */,
 			);
 			name = "Example for Scaffold";
 			path = Scaffold;
@@ -224,6 +233,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SQIconFont/SQIconFont.framework",
 				"${BUILT_PRODUCTS_DIR}/Scaffold/Scaffold.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TABAnimated/TABAnimated.framework",
@@ -242,6 +252,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQIconFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Scaffold.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TABAnimated.framework",
@@ -283,8 +294,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				2CA5368E25A308DF00DE8CE2 /* DemoModel.swift in Sources */,
+				607FACD81AFB9204008FA782 /* DemoViewController.swift in Sources */,
+				2CA5368B25A3085500DE8CE2 /* DemoViewModel.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				2CA5369325A30A1B00DE8CE2 /* DemoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,7 +442,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -443,7 +457,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

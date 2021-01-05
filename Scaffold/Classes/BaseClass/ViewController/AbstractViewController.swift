@@ -3,7 +3,7 @@
 //  MainSearch
 //
 //  Created by 孙琦 on 2020/4/17.
-//  Copyright © 2020 Tigerobo. All rights reserved.
+//  Copyright © 2020 sunqi. All rights reserved.
 //
 
 import UIKit
@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import YYCategories
 
+open
 class AbstractViewController: UIViewController, UIGestureRecognizerDelegate, ViewControllerProtocol {
     
     //    创建viewModel
@@ -35,7 +36,7 @@ class AbstractViewController: UIViewController, UIGestureRecognizerDelegate, Vie
         return false
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         initSubviews()
@@ -46,7 +47,7 @@ class AbstractViewController: UIViewController, UIGestureRecognizerDelegate, Vie
         handleCallBack()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if navigationBarHidden() {
@@ -54,7 +55,7 @@ class AbstractViewController: UIViewController, UIGestureRecognizerDelegate, Vie
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         if navigationBarHidden() {
@@ -86,15 +87,15 @@ class AbstractViewController: UIViewController, UIGestureRecognizerDelegate, Vie
         return true
     }
     
-    override var shouldAutorotate: Bool {
+    public override var shouldAutorotate: Bool {
         false
     }
     
-    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+    public override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         .portrait
     }
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         .portrait
     }
 

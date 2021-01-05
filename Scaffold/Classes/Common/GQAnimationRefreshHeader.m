@@ -2,7 +2,7 @@
 //  GQAnimationRefreshHeader.m
 //  VentureCapital
 //
-//  Created by 刘光强 on 2019/11/22.
+//  Created by sunqi on 2019/11/22.
 //  Copyright © 2019 Tigerye. All rights reserved.
 //
 

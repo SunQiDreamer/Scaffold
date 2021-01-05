@@ -8,7 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Scaffold'
-  s.version          = '0.5.5'
+  s.version          = '0.5.6'
+  s.swift_versions   = '4.2'
   s.summary          = 'A Scaffold.'
 
 # This description is used to generate tags and improve search results.
@@ -25,7 +26,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '孙琦' => '993473797@qq.com' }
-  s.source           = { :git => 'https://github.com/SunQiDreamer/Scaffold', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/SunQiDreamer/Scaffold.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
@@ -52,5 +53,6 @@ Pod::Spec.new do |s|
   s.dependency 'lottie-ios', '2.5.3'
   s.dependency 'Masonry'
   s.dependency 'AFNetworking/Reachability'
+  s.dependency 'SQIconFont'
 
 end

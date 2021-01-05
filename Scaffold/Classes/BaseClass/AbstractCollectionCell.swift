@@ -3,7 +3,7 @@
 //  MainSearch
 //
 //  Created by 孙琦 on 2020/5/28.
-//  Copyright © 2020 Tigerobo. All rights reserved.
+//  Copyright © 2020 sunqi. All rights reserved.
 //
 
 import Foundation

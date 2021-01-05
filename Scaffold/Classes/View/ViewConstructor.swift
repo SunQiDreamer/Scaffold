@@ -3,15 +3,15 @@
 //  MainSearch
 //
 //  Created by 孙琦 on 2020/4/17.
-//  Copyright © 2020 Tigerobo. All rights reserved.
+//  Copyright © 2020 sunqi. All rights reserved.
 //
 
 import UIKit
 import SnapKit
 
-typealias makeContraints = (_ make: ConstraintMaker) -> ()
+public typealias makeContraints = (_ make: ConstraintMaker) -> ()
 
-struct ViewConstructor {
+public struct ViewConstructor {
     
     var view: UIView!
     
@@ -22,9 +22,9 @@ struct ViewConstructor {
     private init() {}
     
     // MARK: - Separator
-    @discardableResult func addSeparator(lineHeight: CGFloat = 0.5,
-                                         color: UIColor = .line,
-                                         make: makeContraints?) -> UIView {
+    @discardableResult public func addSeparator(lineHeight: CGFloat = 0.5,
+                                                color: UIColor = .line,
+                                                make: makeContraints?) -> UIView {
         let line = UIView()
         line.backgroundColor = color;
         view.addSubview(line)
@@ -35,9 +35,9 @@ struct ViewConstructor {
         return line
     }
     
-    @discardableResult func addSeparator(lineHeight: CGFloat = 0.5,
-                                         color: UIColor = .line,
-                                         inset: UIEdgeInsets = .zero) -> UIView {
+    @discardableResult public func addSeparator(lineHeight: CGFloat = 0.5,
+                                                color: UIColor = .line,
+                                                inset: UIEdgeInsets = .zero) -> UIView {
         let line = UIView()
         line.backgroundColor = color;
         view.addSubview(line)
@@ -53,10 +53,10 @@ struct ViewConstructor {
     
     
     // MARK: - View
-    @discardableResult func addView(debug: Bool = false,
-                                    backgroundColor: UIColor? = nil,
-                                    make: makeContraints?,
-                                    configuration: ((_ view: UIView) -> ())? = nil) -> UIView {
+    @discardableResult public func addView(debug: Bool = false,
+                                           backgroundColor: UIColor? = nil,
+                                           make: makeContraints?,
+                                           configuration: ((_ view: UIView) -> ())? = nil) -> UIView {
         
         let addView = UIView()
         addView.backgroundColor = (backgroundColor != nil) ? backgroundColor : view.backgroundColor
@@ -74,12 +74,12 @@ struct ViewConstructor {
     }
     
     // MARK: - Label
-    @discardableResult func addLabel(text: String? = nil,
-                                     textColor: UIColor = .textMain,
-                                     font: UIFont = .systemFont(ofSize: 14),
-                                     backgroundColor: UIColor? = nil,
-                                     make: makeContraints?,
-                                     configuration: ((_ label: UILabel) -> ())? = nil) -> UILabel {
+    @discardableResult public func addLabel(text: String? = nil,
+                                            textColor: UIColor = .textMain,
+                                            font: UIFont = .systemFont(ofSize: 14),
+                                            backgroundColor: UIColor? = nil,
+                                            make: makeContraints?,
+                                            configuration: ((_ label: UILabel) -> ())? = nil) -> UILabel {
         let label = UILabel()
         if text != nil {
             label.text = text
@@ -100,10 +100,10 @@ struct ViewConstructor {
     }
     
     // MARK: - ImageView
-    @discardableResult func addImageView(image: UIImage? = nil,
-                                         backgroundColor: UIColor? = nil,
-                                         make: makeContraints?,
-                                         configuration: ((_ imageView: UIImageView) -> ())? = nil) -> UIImageView {
+    @discardableResult public func addImageView(image: UIImage? = nil,
+                                                backgroundColor: UIColor? = nil,
+                                                make: makeContraints?,
+                                                configuration: ((_ imageView: UIImageView) -> ())? = nil) -> UIImageView {
         
         let imageView = UIImageView()
         imageView.image = image
@@ -119,13 +119,13 @@ struct ViewConstructor {
     }
     
     // MARK: - Button
-    @discardableResult func addButton(text: String? = nil,
-                                      textColor: UIColor = .textMain,
-                                      font: UIFont = .systemFont(ofSize: 14),
-                                      image: UIImage? = nil,
-                                      make: makeContraints?,
-                                      configuration: ((_ button: UIButton) -> ())? = nil,
-                                      clicked:((_ button: UIButton) -> ())? = nil) -> UIButton {
+    @discardableResult public func addButton(text: String? = nil,
+                                             textColor: UIColor = .textMain,
+                                             font: UIFont = .systemFont(ofSize: 14),
+                                             image: UIImage? = nil,
+                                             make: makeContraints?,
+                                             configuration: ((_ button: UIButton) -> ())? = nil,
+                                             clicked:((_ button: UIButton) -> ())? = nil) -> UIButton {
         
         let btn = UIButton(type: .custom)
         btn.setTitle(text, for: .normal)
@@ -143,10 +143,10 @@ struct ViewConstructor {
         return btn
     }
     
-    @discardableResult func addImageButton(image: UIImage? = nil,
-                                           make: makeContraints?,
-                                           configuration: ((_ button: UIButton) -> ())? = nil,
-                                           clicked:((_ button: UIButton) -> ())? = nil) -> UIButton {
+    @discardableResult public func addImageButton(image: UIImage? = nil,
+                                                  make: makeContraints?,
+                                                  configuration: ((_ button: UIButton) -> ())? = nil,
+                                                  clicked:((_ button: UIButton) -> ())? = nil) -> UIButton {
         
         let btn = UIButton(type: .custom)
         btn.setImage(image, for: .normal)
@@ -161,13 +161,13 @@ struct ViewConstructor {
         return btn
     }
     
-    @discardableResult func addExpandButton(text: String? = nil,
-                                            textColor: UIColor = .textMain,
-                                            font: UIFont = .systemFont(ofSize: 14),
-                                            image: UIImage? = nil,
-                                            make: makeContraints?,
-                                            configuration: ((_ button: UIButton) -> ())? = nil,
-                                            clicked:((_ button: UIButton) -> ())? = nil) -> UIButton {
+    @discardableResult public func addExpandButton(text: String? = nil,
+                                                   textColor: UIColor = .textMain,
+                                                   font: UIFont = .systemFont(ofSize: 14),
+                                                   image: UIImage? = nil,
+                                                   make: makeContraints?,
+                                                   configuration: ((_ button: UIButton) -> ())? = nil,
+                                                   clicked:((_ button: UIButton) -> ())? = nil) -> UIButton {
         
         let btn = ExpandButton(type: .custom)
         btn.setTitle(text, for: .normal)
@@ -185,12 +185,12 @@ struct ViewConstructor {
         return btn
     }
     
-    @discardableResult func addTitleButton(text: String? = nil,
-                                           textColor: UIColor = .textMain,
-                                           font: UIFont = .systemFont(ofSize: 14),
-                                           make: makeContraints?,
-                                           configuration: ((_ button: UIButton) -> ())? = nil,
-                                           clicked:((_ button: UIButton) -> ())? = nil) -> UIButton {
+    @discardableResult public func addTitleButton(text: String? = nil,
+                                                  textColor: UIColor = .textMain,
+                                                  font: UIFont = .systemFont(ofSize: 14),
+                                                  make: makeContraints?,
+                                                  configuration: ((_ button: UIButton) -> ())? = nil,
+                                                  clicked:((_ button: UIButton) -> ())? = nil) -> UIButton {
         
         let btn = UIButton(type: .custom)
         btn.setTitle(text, for: .normal)
@@ -207,7 +207,7 @@ struct ViewConstructor {
         return btn
     }
     
-    @discardableResult func addIcon(text: String? = nil,
+    @discardableResult public func addIcon(text: String? = nil,
                                            textColor: UIColor = .textMain,
                                            font: UIFont = .systemFont(ofSize: 14),
                                            make: makeContraints?,
@@ -230,12 +230,12 @@ struct ViewConstructor {
     }
     
     // MARK: - stackView
-    @discardableResult func addStackView(arrangedSubviews: Array<UIView> = [],
-                                         axis: NSLayoutConstraint.Axis = .horizontal,
-                                         distribution: UIStackView.Distribution = .fillEqually,
-                                         alignment: UIStackView.Alignment = .fill,
-                                         make: makeContraints?,
-                                         configuration: ((_ stackView: UIStackView) -> ())? = nil) -> UIStackView {
+    @discardableResult public func addStackView(arrangedSubviews: Array<UIView> = [],
+                                                axis: NSLayoutConstraint.Axis = .horizontal,
+                                                distribution: UIStackView.Distribution = .fillEqually,
+                                                alignment: UIStackView.Alignment = .fill,
+                                                make: makeContraints?,
+                                                configuration: ((_ stackView: UIStackView) -> ())? = nil) -> UIStackView {
         
         let stackView = UIStackView(arrangedSubviews:arrangedSubviews)
         stackView.axis = axis
@@ -252,11 +252,11 @@ struct ViewConstructor {
     }
     
     /// 行 灵感来自于flutter
-    @discardableResult func addRow(arrangedSubviews: Array<UIView> = [],
-                                   distribution: UIStackView.Distribution = .fillEqually,
-                                   alignment: UIStackView.Alignment = .fill,
-                                   make: makeContraints?,
-                                   configuration: ((_ stackView: UIStackView) -> ())? = nil) -> UIStackView {
+    @discardableResult public func addRow(arrangedSubviews: Array<UIView> = [],
+                                          distribution: UIStackView.Distribution = .fillEqually,
+                                          alignment: UIStackView.Alignment = .fill,
+                                          make: makeContraints?,
+                                          configuration: ((_ stackView: UIStackView) -> ())? = nil) -> UIStackView {
         
         let stackView = UIStackView(arrangedSubviews:arrangedSubviews)
         stackView.axis = .horizontal
@@ -274,11 +274,11 @@ struct ViewConstructor {
     
     
     /// 列 灵感来自于flutter
-    @discardableResult func addColumn(arrangedSubviews: Array<UIView> = [],
-                                      distribution: UIStackView.Distribution = .fillEqually,
-                                      alignment: UIStackView.Alignment = .fill,
-                                      make: makeContraints?,
-                                      configuration: ((_ stackView: UIStackView) -> ())? = nil) -> UIStackView {
+    @discardableResult public func addColumn(arrangedSubviews: Array<UIView> = [],
+                                             distribution: UIStackView.Distribution = .fillEqually,
+                                             alignment: UIStackView.Alignment = .fill,
+                                             make: makeContraints?,
+                                             configuration: ((_ stackView: UIStackView) -> ())? = nil) -> UIStackView {
         
         let stackView = UIStackView(arrangedSubviews:arrangedSubviews)
         stackView.axis = .vertical
@@ -295,11 +295,11 @@ struct ViewConstructor {
     }
     
     // MARK: - Card
-    @discardableResult func addCard(backgroundColor: UIColor? = nil,
-                                    cornerRadius: CGFloat = CGFloatScale(5),
-                                    elevation: CGFloat = 0,
-                                    make: makeContraints?,
-                                    configuration: ((_ view: UIView) -> ())? = nil) -> UIView {
+    @discardableResult public func addCard(backgroundColor: UIColor? = nil,
+                                           cornerRadius: CGFloat = CGFloatScale(5),
+                                           elevation: CGFloat = 0,
+                                           make: makeContraints?,
+                                           configuration: ((_ view: UIView) -> ())? = nil) -> UIView {
         
         let addView = UIView()
         addView.backgroundColor = (backgroundColor != nil) ? backgroundColor : view.backgroundColor
@@ -314,17 +314,17 @@ struct ViewConstructor {
     }
     
     // MARK: - icon 如果同时复赋值了image和icon,优先使用icon
-    @discardableResult func addIcon(image: UIImage? = nil,
-                                    icon: String? = nil,
-                                    size: CGFloat,
-                                    color: UIColor,
-                                    make: makeContraints?,
-                                    configuration: ((_ view: UIImageView) -> ())? = nil) -> UIImageView {
+    @discardableResult public func addIcon(image: UIImage? = nil,
+                                           icon: String? = nil,
+                                           size: CGFloat,
+                                           color: UIColor,
+                                           make: makeContraints?,
+                                           configuration: ((_ view: UIImageView) -> ())? = nil) -> UIImageView {
         
         let imageView = UIImageView()
         var innerImage: UIImage?
         if let icon = icon {
-//            innerImage = TYIcon.icon(withName: icon, size: size, color: color)
+            //            innerImage = TYIcon.icon(withName: icon, size: size, color: color)
         } else {
             innerImage = image
         }
@@ -341,9 +341,9 @@ struct ViewConstructor {
     }
     
     
-    @discardableResult func addImageIcon(image: UIImage? = nil,
-                                         make: makeContraints?,
-                                         configuration: ((_ view: UIImageView) -> ())? = nil) -> UIImageView {
+    @discardableResult public func addImageIcon(image: UIImage? = nil,
+                                                make: makeContraints?,
+                                                configuration: ((_ view: UIImageView) -> ())? = nil) -> UIImageView {
         let imageView = UIImageView()
         imageView.image = image
         configuration?(imageView)
@@ -358,11 +358,11 @@ struct ViewConstructor {
     }
     
     
-    @discardableResult func addFontIcon(icon: String? = nil,
-                                        size: CGFloat,
-                                        color: UIColor,
-                                        make: makeContraints?,
-                                        configuration: ((_ view: UIImageView) -> ())? = nil) -> UIImageView {
+    @discardableResult public func addFontIcon(icon: String? = nil,
+                                               size: CGFloat,
+                                               color: UIColor,
+                                               make: makeContraints?,
+                                               configuration: ((_ view: UIImageView) -> ())? = nil) -> UIImageView {
         
         return addIcon(icon: icon, size: size, color: color, make: make, configuration: configuration)
     }

@@ -3,7 +3,7 @@
 //  Demo
 //
 //  Created by 孙琦 on 2020/3/4.
-//  Copyright © 2020 Tigerobo. All rights reserved.
+//  Copyright © 2020 sunqi. All rights reserved.
 //
 
 import UIKit
@@ -27,7 +27,7 @@ extension UIView {
     }
     
     // 构建view namespace 防止调用的是OC分类方法
-    var TY: ViewConstructor {
+    public var TY: ViewConstructor {
         return ViewConstructor(self)
     }
     

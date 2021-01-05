@@ -1,0 +1,6 @@
+framework module SQIconFont {
+  umbrella header "SQIconFont-umbrella.h"
+
+  export *
+  module * { export * }
+}

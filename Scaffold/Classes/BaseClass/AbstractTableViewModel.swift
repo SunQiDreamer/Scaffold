@@ -3,13 +3,14 @@
 //  MainSearch
 //
 //  Created by 孙琦 on 2020/4/22.
-//  Copyright © 2020 Tigerobo. All rights reserved.
+//  Copyright © 2020 sunqi. All rights reserved.
 //
 
 import Foundation
 import RxSwift
 import YYCache
 
+open
 class AbstractTableViewModel: ViewModelProtocol {
     
     let pageNumInitialize = 1
@@ -20,9 +21,9 @@ class AbstractTableViewModel: ViewModelProtocol {
     var refreshUI: (() -> ())? = nil
     lazy var disposeBag = DisposeBag()
     var ts: [ModelProtocol] = []
-    required init() {}
+    required public init() {}
     
-    var dataSource = Array<ModelProtocol>() {
+    open var dataSource = Array<ModelProtocol>() {
         didSet {
             update()
         }
@@ -62,37 +63,44 @@ class AbstractTableViewModel: ViewModelProtocol {
         }
     }
     
+    open
     func loadData() {}
     
-    
+    open
     func refreshData() {
         pageNum = pageNumInitialize
         
 //        loadData()
     }
     
+    open
     func loadMore() {
         pageNum = pageNum + 1
         
 //        loadData()
     }
     
+    open
     func numberOfSections() -> NSInteger {
         1
     }
     
+    open
     func numberOfRows(in section: NSInteger) -> Int {
         dataSource.count
     }
     
+    open
     func model(at indexPath: IndexPath) -> ModelProtocol {
         dataSource[indexPath.row]
     }
     
+    open
     func height(at indexPath: IndexPath) -> CGFloat {
         dataSource[indexPath.row].height()
     }
     
+    open
     func sizeForItem(at indexPath: IndexPath) -> CGSize {
         dataSource[indexPath.row].size()
     }
@@ -108,7 +116,10 @@ extension AbstractTableViewModel {
     // MARK: - 抽象方法
     
     /// 即将更新数据源
+    open
     func viewModelWillUpdateDataSource() {}
+    
     /// 已经更新数据源
+    open
     func viewModelDidUpdateDataSource() {}
 }

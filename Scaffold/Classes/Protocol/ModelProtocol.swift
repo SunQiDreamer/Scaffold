@@ -3,11 +3,12 @@
 //  MainSearch
 //
 //  Created by 孙琦 on 2020/2/19.
-//  Copyright © 2020 Tigerobo. All rights reserved.
+//  Copyright © 2020 sunqi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
+public
 protocol ModelProtocol {
     
     func identifier() -> String
@@ -32,7 +33,7 @@ extension ModelProtocol {
     }
   
     func height() -> CGFloat {
-        UITableViewAutomaticDimension
+        UITableView.automaticDimension
     }
     
     func size() -> CGSize {
@@ -45,7 +46,7 @@ extension ModelProtocol {
     var isLast: Bool? {
         false
     }
-    static var eventName: String? {
+    public static var eventName: String? {
         "unknow"
     }
  
